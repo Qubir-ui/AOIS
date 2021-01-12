@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+    <style>
+        .myfield{
+            border:1px solid #ccc;
+            border-radius:5px;
+            height:15px;
+            width:200px;
+            margin: 10px 10px 10px 0;
+            text-align: center;
+        }
+        .button {
+            background-color: #BDB76B; 
+			border-radius: 5px;
+            border: 1px solid black;
+            color: brown;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        body {
+            background:  #F0E68C ;
+            padding: 10px;
+            background-repeat: no-repeat;
+            }
+        label {
+            font-family: Helvetica;
+            }
+            td {
+            font-family: Arial;
+            }
+            th{
+            font-family: Arial;
+            }
+		#button {
+			background-color: #BDB76B; 
+			border-radius: 5px;
+			margin-left: 95%;
+			margin-top: 0%;
+		}
+    </style>
+</head>
+<body>
+<div id="header" >
+        <h3 align="center"><a href = "{% url 'great' %}" style="text-decoration: none;"><Button id="button">Выйти из аккаунта</Button></a></h3>
+        <h1 align="center">Пользователи<h1>
+        <h3 align="center"><a href = "{% url 'home' %}" style="text-decoration: none;"><Button class="button">Назад</Button></a></h3>
+</div>
+<table border="1" width="70%" align="center">
+    <tr>
+        <th align="center" width="50%">
+    <form method="POST" action="addc/">
+        {% csrf_token %}
+        <table>
+            {{ form }}
+        </table>
+        <input class = "button" type="submit" value="Добавить пользователя">
+    </form>
+    <br>
+    <br>
+    <form method="POST" action="delc/">
+        {% csrf_token %}
+        <label>Введите id</label>
+        <input class = "myfield" type= "number" name="delname"><br>
+        <input class = "button" type= "submit" value="Удалить пользователя">
+    </form>
+    <br>
+    <br>
+    <form method="POST" action="upc/">
+        {% csrf_token %}
+        <label>Введите id</label>
+        <input class="myfield" type= "number" name="upname"><br>
+        <table>
+            {{ form }}
+        </table>
+        <input class = "button" type= "submit" value="Изменить пользователя">
+    </form>
+</table>
+    <tr>
+        <th align="center" width="50%">
+        <h1 align="center"> Список пользователей</h1>
+     <table border="1" width="70%" align="center">
+        </th>
+        <th align="center">
+    <form method="POST" action="show/">
+        {% csrf_token %}
+        <table border="1" width="100%">
+            <tr align="center" bgcolor="#BDB76B">
+                <th>Id</th>
+                <th>Должность</th>
+                <th>ID пользователя</th>
+
+            </tr>
+        {% for i in data_show %}
+            <tr align="center">
+                <td>{{ i.id }}</td>
+                <td>{{ i.position }}</td>
+                <td> <a href="{% url 'Person' %}"> {{ i.Person_number}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </form>
+</th>
+    </tr>
+</table>
+</body>
+</html>
+

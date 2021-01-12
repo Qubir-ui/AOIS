@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Клиническая больница</title>
+    <style>
+    body {
+    background:  #F0E68C  ;
+    padding: 10px;
+    background-repeat: no-repeat;
+	}
+	button {
+	background-color: #BDB76B;
+	border: 1px solid black;
+	width: 150px;
+	font-size: 12pt;
+	border-radius: 5px;
+	}
+    </style>
+</head>
+<body>
+    <div id="header" >
+
+        <h1 align="center">Клиническая больница<h1>
+    </div>
+    <h3 align="center"><a href = "{% url 'Wards' %}" style="text-decoration: none;"><Button>Палаты</Button></a></h3>
+    <h3 align="center"><a href = "{% url 'Movings' %}" style="text-decoration: none;"><Button>Перемещения</Button></a></h3>
+    <h3 align="center"><a href = "{% url 'Patient' %}" style="text-decoration: none;"><Button>Пациент</Button></a></h3>
+    <h3 align="center"><a href = "{% url 'Person' %}" style="text-decoration: none;"><Button>Субъект</Button></a></h3>
+    <h3 align="center"><a href = "{% url 'User' %}" style="text-decoration: none;"><Button>Пользователь</Button></a></h3>
+    <h3 align="center"><a href="/admin/logout/" style="text-decoration: none;"><Button>Выйти из аккаунта</Button></a></h3>
+
+</body>
+</html>
+
