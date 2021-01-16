@@ -8,15 +8,15 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(Wards)
 class WardsAdmin(admin.ModelAdmin):
-    list_display = ('Branch_manager','phone_of_ward','Patient_ID_of_patient')
+    list_display = ("id",'Branch_manager','phone_of_ward','Patient_ID_of_patient')
 
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
-    list_display = ('first_name','last_name','birthday')
+    list_display = ("id",'first_name','last_name','birthday')
 
 @admin.register(Movings)
 class MovingsAdmin(admin.ModelAdmin):
-    list_display = ('date_of_transfer','the_reason_for_the_move','Wards_ward_number','Wards_Patient_ID_of_patient')
+    list_display = ("id",'date_of_transfer','the_reason_for_the_move','Wards_ward_number','Wards_Patient_ID_of_patient')
 
 @admin.register(Patient)
 class PatientAdmin(admin.ModelAdmin):

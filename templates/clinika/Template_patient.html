@@ -64,7 +64,7 @@
     <br>
     <form method="POST" action="delo/">
         {% csrf_token %}
-        <label>Введите id</label>
+        <label>Введите номер пациента</label>
         <input class = "myfield" type= "number" name="delname"><br>
         <input class = "button" type= "submit" value="Удалить пациента">
     </form>
@@ -72,7 +72,7 @@
     <br>
     <form method="POST" action="upo/">
         {% csrf_token %}
-        <label>Введите id</label>
+        <label>Введите номер пациента</label>
         <input class = "myfield" type= "number" name="upname"><br>
         <table>
             {{ form }}
@@ -92,6 +92,9 @@
         <table border="1" width="100%">
             <tr align="center" bgcolor="#BDB76B">
                 <th>Id</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+				<th>День рождения</th>
                 <th>Пол</th>
                 <th>Возраст</th>
 				<th>Предварительный диагноз</th>
@@ -108,6 +111,9 @@
         {% for i in data_show %}
             <tr align="center">
                 <td>{{ i.id }}</td>
+                <td>{{ i.first_name }}</td>
+                <td>{{ i.last_name }}</td>
+                <td>{{ i.birthday }}</td>
                 <td>{{ i.sex }}</td>
                 <td>{{ i.age }}</td>
 				<td>{{ i.preliminary_diagnosis }}</td>

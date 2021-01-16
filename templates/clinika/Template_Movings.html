@@ -65,7 +65,7 @@
     <br>
     <form method="POST" action="dele/">
         {% csrf_token %}
-        <label>Введите id</label>
+        <label>Введите номер перемещения</label>
         <input class = "myfield" type= "number" name="delname"><br>
         <input class = "button" type= "submit" value="Удалить перемещение">
     </form>
@@ -73,7 +73,7 @@
     <br>
     <form method="POST" action="upe/">
         {% csrf_token %}
-        <label>Введите id</label>
+        <label>Введите номер перемещения</label>
         <input class="myfield" type= "number" name="upname"><br>
         <table>
             {{ form }}
