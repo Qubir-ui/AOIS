@@ -1,5 +1,6 @@
 from django.db import models
-#models.ForeignKey('Habitat_area', on_delete=models.CASCADE,null=True)
+
+
 class Wards(models.Model):
     id = models.IntegerField(primary_key=True)
     Branch_manager = models.CharField(max_length=60)

@@ -1,44 +1,41 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from django.template.context_processors import csrf
-from django.views.generic import FormView
 from .models import Wards, Movings, Patient, Person, User
 from .forms import AddWard, AddMovings, AddPatient, AddPerson, AddUser
-from django.views import generic
 from django.views import View
-from django.views.generic.base import TemplateView
-from django.views.generic import FormView
-from django.views.generic import CreateView
 from django.http import HttpResponseRedirect
-from django.http import HttpResponseNotFound
 
-from clinika import forms
 
 def great(request):
     return render(request, "great.html")
 
+
 def index(request):
     return render(request, "index.html")
 
-def index_wards(request): #index_author
+
+def index_wards(request):
     form_add = AddWard()
     data = Wards.objects.all()
     return render(request, "clinika/Template_Wards.html", {"form":form_add, "data_show":data})
 
-def index_Movings(request): #index_exhibition
+
+def index_Movings(request):
     form_ex = AddMovings()
     data = Movings.objects.all()
     return render(request, "clinika/Template_Movings.html", {"form":form_ex, "data_show":data})
+
 
 def index_patient(request):
     form_er = AddPatient
     data = Patient.objects.all()
     return render(request, "clinika/Template_patient.html", {"form":form_er, "data_show":data})
 
+
 def index_user(request):
     form_ca = AddUser
     data = User.objects.all()
     return render(request, "clinika/Template_User.html", {"form":form_ca, "data_show":data})
+
 
 def index_person(request):
     form_ra = AddPerson
@@ -46,6 +43,7 @@ def index_person(request):
     return render(request, "clinika/Template_person.html", {"form":form_ra, "data_show":data})
 
 #Определение view
+
 
 class view_patient(View):
     def add_patient(request):
@@ -224,6 +222,3 @@ class view_Person(View):
             que.birthday = request.POST.get("birthday")
             que.save()
             return HttpResponseRedirect("/Person")
-
-
-
